@@ -17,7 +17,7 @@ class MultiTapeTM:
         self.sigma = sigma or ['0', '1']
         self.blankSymbol = blankSymbol
         self.tape = initialTapes or [
-            [self.blankSymbol] * 2 + list("1011+0001=") + [self.blankSymbol] * 2,  #tape 1
+            [self.blankSymbol] * 2 + list("101+001=") + [self.blankSymbol] * 2,  #tape 1
             [self.blankSymbol] * 10,  #tape 2
             [self.blankSymbol] * 10   #tape 3
         ]
@@ -26,7 +26,7 @@ class MultiTapeTM:
 
     def transition(self):
         #read current symbols from the tape
-        print("states", self.q)
+        # print("states", self.q)
         current_symbols = tuple(self.tape[i][self.tapeHead[i]] for i in range(len(self.tape)))
 
         #transition logic
@@ -71,7 +71,7 @@ class MultiTapeTM:
                 break
 
         print(f"Halting in state {self.current_state.name}.")
-        if (self.current_state.name == 'qF'):
+        if (self.current_state.name == 'qf'):
             print("Halting in final state")
         else:
             print("Invalid input")
